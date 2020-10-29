@@ -469,7 +469,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
     }
   }
 
-  private void drawFrame(Canvas canvas) {
+  public void drawFrame(Canvas canvas) {
     mPaintFrame.setAntiAlias(true);
     mPaintFrame.setFilterBitmap(true);
     mPaintFrame.setStyle(Paint.Style.STROKE);
