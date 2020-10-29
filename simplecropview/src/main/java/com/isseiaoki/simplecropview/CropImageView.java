@@ -149,6 +149,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
     mChangeFrameListener = listener;
   }
 
+  public ChangeFrameListener getChangeFrameListener() {
+    return mChangeFrameListener;
+  }
+
   // Constructor /////////////////////////////////////////////////////////////////////////////////
 
   public CropImageView(Context context) {
@@ -1634,6 +1638,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
           mInitialFrameRect = null;
           setupLayout(mViewWidth, mViewHeight);
           mIsRotating = false;
+          if(mChangeFrameListener != null){
+            mChangeFrameListener.change(mFrameRect);
+          }
         }
       });
       animator.startAnimation(durationMillis);
@@ -1641,6 +1648,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
       mAngle = newAngle % 360;
       mScale = newScale;
       setupLayout(mViewWidth, mViewHeight);
+      if(mChangeFrameListener != null){
+        mChangeFrameListener.change(mFrameRect);
+      }
     }
   }
 
