@@ -1678,11 +1678,51 @@ public class CropImageView extends ImageView {
     }
 
     /**
+     * 将翻转方向取反
+     *
+     * @param degrees
+     * @return
+     */
+    private RotateDegrees reverseDegrees(RotateDegrees degrees) {
+        // 处理翻转后的旋转方向改变问题
+        switch (degrees) {
+            case ROTATE_90D: {
+                degrees = RotateDegrees.ROTATE_M90D;
+                break;
+            }
+            case ROTATE_M90D: {
+                degrees = RotateDegrees.ROTATE_90D;
+                break;
+            }
+            case ROTATE_180D: {
+                degrees = RotateDegrees.ROTATE_M180D;
+                break;
+            }
+            case ROTATE_M180D: {
+                degrees = RotateDegrees.ROTATE_180D;
+                break;
+            }
+            case ROTATE_270D: {
+                degrees = RotateDegrees.ROTATE_M270D;
+                break;
+            }
+            case ROTATE_M270D: {
+                degrees = RotateDegrees.ROTATE_270D;
+                break;
+            }
+        }
+        return degrees;
+    }
+
+    /**
      * Rotate image
      *
      * @param degrees rotation angle
      */
     public void rotateImage(RotateDegrees degrees) {
+        if (mIsReverseY) {
+            degrees = reverseDegrees(degrees);
+        }
         rotateImage(degrees, mAnimationDurationMillis);
     }
 
@@ -2548,6 +2588,7 @@ public class CropImageView extends ImageView {
         int inputImageHeight;
         int outputImageWidth;
         int outputImageHeight;
+        boolean mIsReverseY;
 
         SavedState(Parcelable superState) {
             super(superState);
@@ -2592,6 +2633,7 @@ public class CropImageView extends ImageView {
             inputImageHeight = in.readInt();
             outputImageWidth = in.readInt();
             outputImageHeight = in.readInt();
+            mIsReverseY = in.readBoolean();
         }
 
         @Override
@@ -2634,13 +2676,16 @@ public class CropImageView extends ImageView {
             out.writeInt(inputImageHeight);
             out.writeInt(outputImageWidth);
             out.writeInt(outputImageHeight);
+            out.writeBoolean(mIsReverseY);
         }
 
         public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+            @Override
             public SavedState createFromParcel(final Parcel inParcel) {
                 return new SavedState(inParcel);
             }
 
+            @Override
             public SavedState[] newArray(final int inSize) {
                 return new SavedState[inSize];
             }
