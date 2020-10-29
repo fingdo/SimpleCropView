@@ -1716,9 +1716,9 @@ public class CropImageView extends ImageView {
         }
         if (cropped.getWidth() != mImageRect.width()
                 || cropped.getHeight() != mImageRect.height()) {
-
+            return scaleBitmap(cropped, mImageRect.width(), mImageRect.height())
         }
-        return scaleBitmap(cropped, mImageRect.width(), mImageRect.height());
+        return cropped;
     }
 
     /**
