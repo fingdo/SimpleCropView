@@ -90,7 +90,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
   private Paint mPaintDebug;
   public RectF mFrameRect;
   private RectF mInitialFrameRect;
-  private RectF mImageRect;
+  public RectF mImageRect;
   private PointF mCenter = new PointF();
   private float mLastX, mLastY;
   private boolean mIsRotating = false;
