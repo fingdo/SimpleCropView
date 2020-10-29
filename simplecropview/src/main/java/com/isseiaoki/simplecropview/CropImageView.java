@@ -88,7 +88,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
   public Paint mPaintFrame;
   private Paint mPaintBitmap;
   private Paint mPaintDebug;
-  private RectF mFrameRect;
+  public RectF mFrameRect;
   private RectF mInitialFrameRect;
   private RectF mImageRect;
   private PointF mCenter = new PointF();
