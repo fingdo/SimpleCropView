@@ -41,6 +41,14 @@ import com.isseiaoki.simplecropview.callback.SaveCallback;
 import com.isseiaoki.simplecropview.util.Logger;
 import com.isseiaoki.simplecropview.util.Utils;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import io.reactivex.Completable;
 import io.reactivex.CompletableEmitter;
 import io.reactivex.CompletableOnSubscribe;
@@ -49,14 +57,6 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @SuppressWarnings("unused")
 public class CropImageView extends ImageView {
@@ -1714,9 +1714,11 @@ public class CropImageView extends ImageView {
             // 如果翻转了照片，那么对照片进行翻转处理
             cropped = reverseImg(cropped, -1, 1);
         }
-        if (cropped.getWidth() != mImageRect.width()
-                || cropped.getHeight() != mImageRect.height()) {
-            return scaleBitmap(cropped, mImageRect.width(), mImageRect.height())
+        if (mFrameRect != null) {
+            if (cropped.getWidth() != mFrameRect.width()
+                    || cropped.getHeight() != mFrameRect.height()) {
+                return scaleBitmap(cropped, mFrameRect.width(), mFrameRect.height());
+            }
         }
         return cropped;
     }
