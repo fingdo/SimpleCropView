@@ -143,6 +143,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
   private boolean mIsAnimationEnabled = true;
   private int mAnimationDurationMillis = DEFAULT_ANIMATION_DURATION_MILLIS;
   private boolean mIsHandleShadowEnabled = true;
+  private ChangeFrameListener mChangeFrameListener;
+
+  public void setChangeFrameListener(ChangeFrameListener listener){
+    mChangeFrameListener = listener;
+  }
 
   // Constructor /////////////////////////////////////////////////////////////////////////////////
 
@@ -533,6 +538,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
     } else {
       mFrameRect = calcFrameRect(mImageRect);
     }
+    if(mChangeFrameListener != null){
+      mChangeFrameListener.change(mFrameRect);
+    }
 
     mIsInitialized = true;
     invalidate();
@@ -614,10 +622,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
       case MotionEvent.ACTION_CANCEL:
         getParent().requestDisallowInterceptTouchEvent(false);
         onCancel();
+        if(mChangeFrameListener != null){
+          mChangeFrameListener.change(mFrameRect);
+        }
         return true;
       case MotionEvent.ACTION_UP:
         getParent().requestDisallowInterceptTouchEvent(false);
         onUp(event);
+        if(mChangeFrameListener != null){
+          mChangeFrameListener.change(mFrameRect);
+        }
         return true;
     }
     return false;
@@ -1031,12 +1045,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
           mFrameRect = newRect;
           invalidate();
           mIsAnimating = false;
+          if(mChangeFrameListener != null){
+            mChangeFrameListener.change(mFrameRect);
+          }
         }
       });
       animator.startAnimation(durationMillis);
     } else {
       mFrameRect = calcFrameRect(mImageRect);
       invalidate();
+      if(mChangeFrameListener != null){
+        mChangeFrameListener.change(mFrameRect);
+      }
     }
   }
 
