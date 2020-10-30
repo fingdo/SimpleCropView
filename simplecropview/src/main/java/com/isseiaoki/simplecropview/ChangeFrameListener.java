@@ -1,6 +1,5 @@
 package com.isseiaoki.simplecropview;
 
-import android.graphics.Rect;
 import android.graphics.RectF;
 
 /**
@@ -18,4 +17,10 @@ public interface ChangeFrameListener {
      * @param rect
      */
     void change(RectF rect);
+
+    /**
+     * 初始化后得到的显示区域
+     * @param rect
+     */
+    void init(RectF rect);
 }

@@ -554,7 +554,7 @@ public class CropImageView extends ImageView {
             mFrameRect = calcFrameRect(mImageRect);
         }
         if (mChangeFrameListener != null) {
-            mChangeFrameListener.change(mFrameRect);
+            mChangeFrameListener.init(mFrameRect);
         }
 
         mIsInitialized = true;
@@ -634,20 +634,17 @@ public class CropImageView extends ImageView {
                 if (mTouchArea != TouchArea.OUT_OF_BOUNDS) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
+                if (mChangeFrameListener != null) {
+                    mChangeFrameListener.change(mFrameRect);
+                }
                 return true;
             case MotionEvent.ACTION_CANCEL:
                 getParent().requestDisallowInterceptTouchEvent(false);
                 onCancel();
-                if (mChangeFrameListener != null) {
-                    mChangeFrameListener.change(mFrameRect);
-                }
                 return true;
             case MotionEvent.ACTION_UP:
                 getParent().requestDisallowInterceptTouchEvent(false);
                 onUp(event);
-                if (mChangeFrameListener != null) {
-                    mChangeFrameListener.change(mFrameRect);
-                }
                 return true;
         }
         return false;
