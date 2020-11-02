@@ -1360,6 +1360,10 @@ public class CropImageView extends ImageView {
 
     // Public methods //////////////////////////////////////////////////////////////////////////////
 
+    public void setInitialFrameRect(RectF rect) {
+        this.mInitialFrameRect = rect;
+    }
+
     /**
      * Get source image bitmap
      *
