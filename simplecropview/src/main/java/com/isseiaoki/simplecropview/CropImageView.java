@@ -2092,11 +2092,11 @@ public class CropImageView extends ImageView {
         frameRect.set(initialFrameRect.left * mScale, initialFrameRect.top * mScale,
                 initialFrameRect.right * mScale, initialFrameRect.bottom * mScale);
         frameRect.offset(mImageRect.left, mImageRect.top);
-        float l = Math.max(mImageRect.left, frameRect.left);
-        float t = Math.max(mImageRect.top, frameRect.top);
-        float r = Math.min(mImageRect.right, frameRect.right);
-        float b = Math.min(mImageRect.bottom, frameRect.bottom);
-        frameRect.set(l, t, r, b);
+//        float l = Math.max(mImageRect.left, frameRect.left);
+//        float t = Math.max(mImageRect.top, frameRect.top);
+//        float r = Math.min(mImageRect.right, frameRect.right);
+//        float b = Math.min(mImageRect.bottom, frameRect.bottom);
+//        frameRect.set(l, t, r, b);
         return frameRect;
     }
 
