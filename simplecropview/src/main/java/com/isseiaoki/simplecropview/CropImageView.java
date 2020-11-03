@@ -2692,4 +2692,246 @@ public class CropImageView extends ImageView {
             }
         };
     }
+
+
+    // getter
+    public int getViewWidth() {
+        return mViewWidth;
+    }
+
+    public int getViewHeight() {
+        return mViewHeight;
+    }
+
+    public float getScale() {
+        return mScale;
+    }
+
+    public float getAngle() {
+        return mAngle;
+    }
+
+    public float getImgWidth() {
+        return mImgWidth;
+    }
+
+    public float getImgHeight() {
+        return mImgHeight;
+    }
+
+    public boolean isInitialized() {
+        return mIsInitialized;
+    }
+
+    public Paint getPaintTranslucent() {
+        return mPaintTranslucent;
+    }
+
+    public Paint getPaintFrame() {
+        return mPaintFrame;
+    }
+
+    public Paint getPaintBitmap() {
+        return mPaintBitmap;
+    }
+
+    public Paint getPaintDebug() {
+        return mPaintDebug;
+    }
+
+    public RectF getFrameRect() {
+        return mFrameRect;
+    }
+
+    public RectF getInitialFrameRect() {
+        return mInitialFrameRect;
+    }
+
+    public RectF getImageRect() {
+        return mImageRect;
+    }
+
+    public PointF getCenter() {
+        return mCenter;
+    }
+
+    public float getLastX() {
+        return mLastX;
+    }
+
+    public float getLastY() {
+        return mLastY;
+    }
+
+    public boolean isRotating() {
+        return mIsRotating;
+    }
+
+    public boolean isAnimating() {
+        return mIsAnimating;
+    }
+
+    public Interpolator getInterpolator() {
+        return mInterpolator;
+    }
+
+    public int getExifRotation() {
+        return mExifRotation;
+    }
+
+    public int getOutputMaxWidth() {
+        return mOutputMaxWidth;
+    }
+
+    public int getOutputMaxHeight() {
+        return mOutputMaxHeight;
+    }
+
+    public int getOutputWidth() {
+        return mOutputWidth;
+    }
+
+    public int getOutputHeight() {
+        return mOutputHeight;
+    }
+
+    public boolean isIsDebug() {
+        return mIsDebug;
+    }
+
+    public Bitmap.CompressFormat getCompressFormat() {
+        return mCompressFormat;
+    }
+
+    public int getCompressQuality() {
+        return mCompressQuality;
+    }
+
+    public int getInputImageWidth() {
+        return mInputImageWidth;
+    }
+
+    public int getInputImageHeight() {
+        return mInputImageHeight;
+    }
+
+    public int getOutputImageWidth() {
+        return mOutputImageWidth;
+    }
+
+    public int getOutputImageHeight() {
+        return mOutputImageHeight;
+    }
+
+    public AtomicBoolean getIsLoading() {
+        return mIsLoading;
+    }
+
+    public AtomicBoolean getIsCropping() {
+        return mIsCropping;
+    }
+
+    public AtomicBoolean getIsSaving() {
+        return mIsSaving;
+    }
+
+    public ExecutorService getExecutor() {
+        return mExecutor;
+    }
+
+    public TouchArea getTouchArea() {
+        return mTouchArea;
+    }
+
+    public CropMode getCropMode() {
+        return mCropMode;
+    }
+
+    public ShowMode getGuideShowMode() {
+        return mGuideShowMode;
+    }
+
+    public ShowMode getHandleShowMode() {
+        return mHandleShowMode;
+    }
+
+    public float getMinFrameSize() {
+        return mMinFrameSize;
+    }
+
+    public int getHandleSize() {
+        return mHandleSize;
+    }
+
+    public int getTouchPadding() {
+        return mTouchPadding;
+    }
+
+    public boolean isShowGuide() {
+        return mShowGuide;
+    }
+
+    public boolean isShowHandle() {
+        return mShowHandle;
+    }
+
+    public boolean isIsCropEnabled() {
+        return mIsCropEnabled;
+    }
+
+    public boolean isIsEnabled() {
+        return mIsEnabled;
+    }
+
+    public PointF getCustomRatio() {
+        return mCustomRatio;
+    }
+
+    public float getFrameStrokeWeight() {
+        return mFrameStrokeWeight;
+    }
+
+    public float getGuideStrokeWeight() {
+        return mGuideStrokeWeight;
+    }
+
+    public int getBackgroundColor() {
+        return mBackgroundColor;
+    }
+
+    public int getOverlayColor() {
+        return mOverlayColor;
+    }
+
+    public int getFrameColor() {
+        return mFrameColor;
+    }
+
+    public int getHandleColor() {
+        return mHandleColor;
+    }
+
+    public int getGuideColor() {
+        return mGuideColor;
+    }
+
+    public float getInitialFrameScale() {
+        return mInitialFrameScale;
+    }
+
+    public boolean isIsAnimationEnabled() {
+        return mIsAnimationEnabled;
+    }
+
+    public int getAnimationDurationMillis() {
+        return mAnimationDurationMillis;
+    }
+
+    public boolean isIsHandleShadowEnabled() {
+        return mIsHandleShadowEnabled;
+    }
+
+    public boolean ismIsReverseY() {
+        return mIsReverseY;
+    }
 }
