@@ -458,9 +458,9 @@ public class CropImageView extends ImageView {
     }
 
     private void drawCropFrame(Canvas canvas) {
+        drawOverlay(canvas);
         if (!mIsCropEnabled) return;
         if (mIsRotating) return;
-        drawOverlay(canvas);
         drawFrame(canvas);
         if (mShowGuide) drawGuidelines(canvas);
         if (mShowHandle) drawHandles(canvas);
