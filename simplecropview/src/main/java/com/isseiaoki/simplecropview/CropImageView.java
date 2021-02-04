@@ -466,7 +466,7 @@ public class CropImageView extends ImageView {
         if (mShowHandle) drawHandles(canvas);
     }
 
-    private void drawOverlay(Canvas canvas) {
+    public void drawOverlay(Canvas canvas) {
         mPaintTranslucent.setAntiAlias(true);
         mPaintTranslucent.setFilterBitmap(true);
         mPaintTranslucent.setColor(mOverlayColor);
